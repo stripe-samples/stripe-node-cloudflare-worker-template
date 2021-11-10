@@ -1,0 +1,15 @@
+name = "my-stripe-worker"
+type = "javascript"
+account_id = ""
+route = ""
+zone_id = ""
+usage_model = ""
+compatibility_flags = []
+compatibility_date = "2021-10-06"
+workers_dev = true
+
+[build]
+command = "npm run build"
+
+[build.upload]
+format = "service-worker"
