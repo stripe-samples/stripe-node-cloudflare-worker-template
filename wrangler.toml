@@ -1,6 +1,5 @@
 name = "my-stripe-worker"
 main = "src/index.js"
-usage_model = ""
 compatibility_flags = []
 compatibility_date = "2022-12-12"
 workers_dev = true

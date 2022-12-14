@@ -3,7 +3,7 @@ This is a template for setting up a [Cloudflare Worker](https://workers.cloudfla
 
 ## Generating
 
-To generate using [wrangler](https://github.com/cloudflare/wrangler)
+To generate using [wrangler](https://github.com/cloudflare/wrangler2)
 
 ```
 wrangler generate projectname https://github.com/stripe-samples/stripe-node-cloudflare-worker-template
@@ -13,19 +13,20 @@ Further documentation for Wrangler can be found [here](https://developers.cloudf
 
 ## Publishing
 
-You can build and publish your worker using:
+To add your STRIPE_API_KEY as a plaintext environment variable via wrangler:
 
-```bash
- STRIPE_API_KEY="<YOUR API KEY HERE>" wrangler publish
+```toml
+[vars]
+STRIPE_API_KEY = "<YOUR API KEY HERE>"
 ```
 
-This will build your application using Webpack and publish it. If this is your first time publishing, it will create a new worker named `my-stripe-worker` under your account. If all goes well, the command will output a URL that looks something like `https://my-stripe-worker.<your user name>.workers.dev` where your worker is available.
-
-Alternatively, you can specify `STRIPE_API_KEY` as an environment variable and use:
+Now, you can build and publish your worker using:
 
 ```bash
 wrangler publish
 ```
+
+This will build your application and publish it. If this is your first time publishing, it will create a new worker named `my-stripe-worker` under your account. If all goes well, the command will output a URL that looks something like `https://my-stripe-worker.<your user name>.workers.dev` where your worker is available.
 
 ### Cloudflare Secrets
 
