@@ -1,11 +1,10 @@
 const Stripe = require("stripe");
 
-const stripe = Stripe(STRIPE_API_KEY, {
-  // Cloudflare Workers use the Fetch API for their API requests.
-  httpClient: Stripe.createFetchHttpClient()
-});
-
-async function handleRequest(request) {
+async function handleRequest(request, env) {
+  const stripe = Stripe(env.STRIPE_API_KEY, {
+    // Cloudflare Workers use the Fetch API for their API requests.
+    httpClient: Stripe.createFetchHttpClient()
+  });
   /*
    * Sample checkout integration which redirects a customer to a checkout page
    * for the specified line items.
@@ -34,7 +33,7 @@ async function handleRequest(request) {
   return Response.redirect(session.url, 303);
 };
 
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
-});
+export default {
+  fetch: handleRequest
+}
 
