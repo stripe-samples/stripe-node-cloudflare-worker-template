@@ -8,7 +8,7 @@
   "author": "{{ authors }}",
   "license": "MIT",
   "dependencies": {
-    "stripe": "^11.3.0"
+    "stripe": "^11.10.0"
   },
   "devDependencies": {}
 }

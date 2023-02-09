@@ -3,4 +3,3 @@ main = "src/index.js"
 compatibility_flags = []
 compatibility_date = "2022-12-12"
 workers_dev = true
-node_compat = true

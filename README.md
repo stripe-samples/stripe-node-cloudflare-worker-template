@@ -30,11 +30,10 @@ This will build your application and publish it. If this is your first time publ
 
 ### Cloudflare Secrets
 
-Cloudflare Workers offer a [secrets infrastructure](https://developers.cloudflare.com/workers/platform/environment-variables#adding-secrets-via-wrangler) for storing an encrypted secret. You can use this instead of relying on an environment variable.
+Cloudflare Workers offer a [secrets infrastructure](https://developers.cloudflare.com/workers/platform/environment-variables#add-secrets-to-your-project) for storing an encrypted secret. You can use this instead of relying on an environment variable.
 
 1. Publish your worker at least once using the above instructions to bootstrap the worker.
-2. Remove the `DefinePlugin` from [`webpack.config.js`](webpack.config.js).
-3. Run `wrangler secret put STRIPE_API_KEY`. This will prompt you to enter your secret (ie. your Stripe API key). 
+2. Run `wrangler secret put STRIPE_API_KEY`. This will prompt you to enter your secret (ie. your Stripe API key). 
 
 This only needs to be done the first time you are configuring up your new worker. It will persist across deployments. Once set up, you can publish using:
 
