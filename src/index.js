@@ -1,10 +1,7 @@
 const Stripe = require("stripe");
 
 async function handleRequest(request, env) {
-  const stripe = Stripe(env.STRIPE_API_KEY, {
-    // Cloudflare Workers use the Fetch API for their API requests.
-    httpClient: Stripe.createFetchHttpClient()
-  });
+  const stripe = Stripe(env.STRIPE_API_KEY);
   /*
    * Sample checkout integration which redirects a customer to a checkout page
    * for the specified line items.
