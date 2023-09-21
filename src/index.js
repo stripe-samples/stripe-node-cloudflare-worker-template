@@ -1,7 +1,14 @@
 const Stripe = require("stripe");
 
 async function handleRequest(request, env) {
-  const stripe = Stripe(env.STRIPE_API_KEY);
+  const stripe = Stripe(env.STRIPE_API_KEYY, {
+    apiVersion: '2023-08-16',
+    appInfo: { // For sample support and debugging, not required for production:
+      name: 'stripe-samples/stripe-node-cloudflare-worker-template',
+      version: '0.0.1',
+      url: 'https://github.com/stripe-samples'
+    }
+  });
   /*
    * Sample checkout integration which redirects a customer to a checkout page
    * for the specified line items.
