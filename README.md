@@ -37,6 +37,15 @@ Finally, you can run this example by the following command:
 npm run dev
 ```
 
+You will get the local application URL like the following:
+
+```bash
+[mf:inf] Ready on http://0.0.0.0:51219 
+[mf:inf] - http://127.0.0.1:51219
+[mf:inf] - http://192.168.86.21:51219
+[mf:inf] - http://172.18.96.89:51219
+```
+
 ### [Optional] Run a webhook locally
 
 You can use the Stripe CLI to easily spin up a local webhook.
@@ -44,7 +53,7 @@ You can use the Stripe CLI to easily spin up a local webhook.
 First install the CLI and link your Stripe account.
 
 ```
-stripe listen --forward-to http://127.0.0.1:8787/webhook
+stripe listen --forward-to http://{REPLACE_TO_YOUR_LOCAL_APPLICATION_URL}/webhook
 ```
 
 The CLI will print a webhook secret key to the console. Set STRIPE_WEBHOOK_SECRET to this value in your .env file.
