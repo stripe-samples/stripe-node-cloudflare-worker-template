@@ -7,9 +7,51 @@ To generate using [wrangler](https://github.com/cloudflare/wrangler2)
 
 ```
 wrangler generate projectname https://github.com/stripe-samples/stripe-node-cloudflare-worker-template
+cd projectname
+npm install
 ```
 
 Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
+
+## How to run locally
+
+To add your STRIPE_API_KEY as a plaintext environment variable via wrangler:
+
+Rename and move the `.dev.vars.example` file into a file named `.dev.vars`. For example:
+
+```toml
+cp .dev.vars.example .dev.vars
+```
+
+Example .env file:
+
+```
+STRIPE_API_KEY='sk_test_xxx'
+```
+
+You will need a Stripe account in order to run the demo. Once you set up your account, go to the Stripe [developer dashboard](https://stripe.com/docs/development#api-keys) to find your API keys.
+
+Finally, you can run this example by the following command:
+
+```
+npm run dev
+```
+
+### [Optional] Run a webhook locally
+
+You can use the Stripe CLI to easily spin up a local webhook.
+
+First install the CLI and link your Stripe account.
+
+```
+stripe listen --forward-to http://127.0.0.1:8787/webhook
+```
+
+The CLI will print a webhook secret key to the console. Set STRIPE_WEBHOOK_SECRET to this value in your .env file.
+
+You should see events logged in the console where the CLI is running.
+
+When you are ready to create a live webhook endpoint, follow our guide in the docs on [configuring a webhook endpoint in the dashboard](https://stripe.com/docs/webhooks/setup#configure-webhook-settings).
 
 ## Publishing
 
