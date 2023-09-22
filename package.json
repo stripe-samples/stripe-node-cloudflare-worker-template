@@ -4,11 +4,17 @@
   "version": "1.0.0",
   "description": "A template for using stripe-node in a Cloudflare Worker",
   "main": "dist/worker.js",
-  "scripts": {},
+  "scripts": {
+    "dev": "wrangler dev src/index.js",
+    "deploy": "wrangler deploy --minify src/index.js"
+  },
   "author": "{{ authors }}",
   "license": "MIT",
   "dependencies": {
-    "stripe": "^11.10.0"
+    "hono": "^3.7.0",
+    "stripe": "^13.6.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "wrangler": "^3.9.0"
+  }
 }
