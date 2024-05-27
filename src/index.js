@@ -62,6 +62,8 @@ app.get("/", async (context) => {
 });
 
 app.post("/webhook", async (context) => {
+  // Load the Stripe API key from context.
+  const { STRIPE_WEBHOOK_SECRET } = env(context);
     /**
      * Load the Stripe client from the context
      */
@@ -75,9 +77,7 @@ app.post("/webhook", async (context) => {
         const event = await stripe.webhooks.constructEventAsync(
             body,
             signature,
-            context.env.STRIPE_WEBHOOK_SECRET,
-            undefined,
-            Stripe.createSubtleCryptoProvider()
+            STRIPE_WEBHOOK_SECRET
         );
         switch(event.type) {
             case "payment_intent.created": {
