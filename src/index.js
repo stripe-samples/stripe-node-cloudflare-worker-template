@@ -4,7 +4,6 @@ const app = new Hono();
 
 function createStripeClient(apiKey) {
   return new Stripe(apiKey, {
-    httpClient: Stripe.createFetchHttpClient(),
     appInfo: { // For sample support and debugging, not required for production:
       name: "stripe-samples/stripe-node-cloudflare-worker-template",
       version: "0.0.1",
