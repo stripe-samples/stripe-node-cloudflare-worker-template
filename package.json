@@ -11,10 +11,10 @@
   "author": "{{ authors }}",
   "license": "MIT",
   "dependencies": {
-    "hono": "^3.7.0",
-    "stripe": "^13.6.0"
+    "hono": "^4.3.11",
+    "stripe": "^15.8.0"
   },
   "devDependencies": {
-    "wrangler": "^3.9.0"
+    "wrangler": "^3.57.1"
   }
 }
