@@ -91,3 +91,21 @@ This only needs to be done the first time you are configuring up your new worker
 ```bash
 wrangler publish
 ```
+
+## Troubleshooting
+
+### **MiniflareCoreError [ERR_RUNTIME_FAILURE]: The Workers runtime failed to start. There is likely additional logging output above.**
+
+Depending on the settings of your local machine, there may be failures when attempting to start the service in a local environment using Wrangler. According to a [GitHub issue](https://github.com/cloudflare/workers-sdk/issues/4709#issuecomment-1988694586), it could be related to the certificate file or network settings.
+
+To avoid using an invalid certificate file, please try starting the application with the following command:
+
+```bash
+NODE_EXTRA_CA_CERTS="" npm run dev
+```
+
+If it still does not work, you may need to change the `/etc/hosts/` file and add the following settings:
+
+```
+127.0.0.1       localhost
+```
