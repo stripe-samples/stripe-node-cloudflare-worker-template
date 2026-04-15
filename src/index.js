@@ -7,6 +7,11 @@ const app = new Hono();
  * Setup Stripe SDK prior to handling a request
  */
 app.use('*', async (context, next) => {
+  // Don't put any keys in code. Use an environment variable (as shown
+  // here) or secrets vault to supply keys to your integration.
+  //
+  // See https://docs.stripe.com/keys-best-practices and find your
+  // keys at https://dashboard.stripe.com/apikeys.
   // Load the Stripe API key from context.
   const { STRIPE_API_KEY: stripeKey } = env(context);
 
