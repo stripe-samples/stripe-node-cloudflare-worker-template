@@ -1,20 +1,26 @@
 {
   "private": true,
-  "name": "{{ project-name }}",
+  "name": "stripe-node-cloudflare-worker-template",
   "version": "1.0.0",
   "description": "A template for using stripe-node in a Cloudflare Worker",
-  "main": "dist/worker.js",
   "scripts": {
-    "dev": "wrangler dev src/index.js",
-    "deploy": "wrangler deploy --minify src/index.js"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "test": "vitest run"
   },
-  "author": "{{ authors }}",
+  "author": "Stripe",
   "license": "MIT",
   "dependencies": {
-    "hono": "^4.3.11",
-    "stripe": "^15.8.0"
+    "hono": "^4.13.16",
+    "stripe": "^23.1.0"
   },
   "devDependencies": {
-    "wrangler": "^3.57.1"
+    "@cloudflare/vitest-plugin": "^1.6.0",
+    "vitest": "^5.1.0",
+    "wrangler": "^4.158.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=24"
   }
 }

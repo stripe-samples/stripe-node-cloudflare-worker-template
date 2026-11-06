@@ -1,6 +1,6 @@
-const { Hono } = require("hono");
-const { env } = require("hono/adapter");
-const Stripe = require("stripe");
+import { Hono } from "hono";
+import { env } from "hono/adapter";
+import Stripe from "stripe";
 const app = new Hono();
 
 /**
